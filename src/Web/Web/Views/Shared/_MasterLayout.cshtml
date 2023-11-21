@@ -1,0 +1,395 @@
+﻿@model Portolo.Web.Models.RegistrationViewModel
+@{
+    ViewBag.Title = "LogIn";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portolo</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.bootstrap5.min.css" rel="stylesheet">
+    <link href="~/Content/css/filter_multi_select.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+
+
+    <!-- Jquery-->
+    @*<script src="~/Scripts/popper.min.js"></script>
+        <script src="~/Scripts/jquery.js"></script>*@
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/filter-multi-select-bundle.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap5.min.js"></script>
+    <script src="~/Scripts/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/responsive.bootstrap5.min.js"></script>
+    <!-- Jquery-->
+
+</head>
+<body>
+    <header id="loginheader" class="after-login">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white p-0">
+                <div class="container--fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/images/logo.png" alt="Logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <img src="~/images/menu1.png" alt="Menu">
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        @if (User != null)
+                        {
+                            <ul class="navbar-nav strip-info">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  System  </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="@Url.Action("Configuration","System",new {area="System" })"> Configuration </a></li>
+                                        <li><a class="dropdown-item" href="#"> Announcements </a></li>
+                                        <li><a class="dropdown-item" href="#"> Organizations </a></li>
+                                        <li><a class="dropdown-item" href="#"> Message Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Internationalization </a></li>
+                                        <li><a class="dropdown-item" href="#"> FAQs </a></li>
+                                        <li><a class="dropdown-item" href="#"> Users </a></li>
+                                        <li><a class="dropdown-item" href="#"> Process Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Pages </a></li>
+                                        <li><a class="dropdown-item" href="#"> Forums </a></li>
+                                        <li><a class="dropdown-item" href="#"> Reports </a></li>
+                                        <li><a class="dropdown-item" href="#"> Forum Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Response Time Limits </a></li>
+                                        <li><a class="dropdown-item" href="#"> Process Template Library </a></li>
+                                        <li><a class="dropdown-item" href="#"> Process Library </a></li>
+                                        <li><a class="dropdown-item" href="#"> Announcement Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Security Groups </a></li>
+                                        <li><a class="dropdown-item" href="#"> System Files </a></li>
+                                        <li><a class="dropdown-item" href="#"> Sentinels </a></li>
+                                        <li><a class="dropdown-item" href="#"> Finance Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Subscriptions/Pricing </a></li>
+                                        <li><a class="dropdown-item" href="#"> System Tasks </a></li>
+                                        <li><a class="dropdown-item" href="#"> Mobile Admin </a></li>
+                                        <li><a class="dropdown-item" href="#"> Website Activity Log </a></li>
+                                        <li><a class="dropdown-item" href="#"> Support Requests </a></li>
+                                        <li><a class="dropdown-item" href="#"> Topics of Expertise </a></li>
+                                        <li><a class="dropdown-item" href="#"> Surveys </a></li>
+                                        <li><a class="dropdown-item" href="#"> Audit Trail </a></li>
+                                        <li><a class="dropdown-item" href="#"> System Text </a></li>
+                                        <li><a class="dropdown-item" href="#"> Video Help </a></li>
+                                        <li><a class="dropdown-item" href="#"> Process Blocks </a></li>
+                                        <li><a class="dropdown-item" href="#"> Data Quality </a></li>
+                                        <li><a class="dropdown-item" href="#"> Standard Templates </a></li>
+                                        <li><a class="dropdown-item" href="#"> Business Calendar </a></li>
+                                        <li><a class="dropdown-item" href="#"> System Checklist Items </a></li>
+                                        <li><a class="dropdown-item" href="#"> System Checklists </a></li>
+                                        <li><a class="dropdown-item" href="#"> Redirects </a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Our Organization  </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"> Our Organization </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Studies </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Business Calendar </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Response Time Limits </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Files </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Surveys </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Lessons Learned </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Forums</a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Topics </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Topic Assignments </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Topic Response Paths </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Reports</a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Dashboards </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Measures </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Topic Group </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Process Blocks</a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Messages </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Announcements </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Process Templates </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Checklist Items </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Checklists </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Subscription </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Processes </a></li>
+                                        <li><a class="dropdown-item" href="#"> Our Standard Templates </a></li>
+                                        @*<li><a class="dropdown-item" href="#"> Support Requests </a></li>
+                                            <li><a class="dropdown-item" href="#"> Topics of Expertise </a></li>
+                                            <li><a class="dropdown-item" href="#"> Surveys </a></li>
+                                            <li><a class="dropdown-item" href="#"> Audit Trail </a></li>
+                                            <li><a class="dropdown-item" href="#"> System Text </a></li>
+                                            <li><a class="dropdown-item" href="#"> Video Help </a></li>
+                                            <li><a class="dropdown-item" href="#"> Process Blocks </a></li>
+                                            <li><a class="dropdown-item" href="#"> Data Quality </a></li>
+                                            <li><a class="dropdown-item" href="#"> Standard Templates </a></li>
+                                            <li><a class="dropdown-item" href="#"> Business Calendar </a></li>
+                                            <li><a class="dropdown-item" href="#"> System Checklist Items </a></li>
+                                            <li><a class="dropdown-item" href="#"> System Checklists </a></li>
+                                            <li><a class="dropdown-item" href="#"> Redirects </a></li>*@
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  My Pages  </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"> My Profile </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Dashboard </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Reports </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Files </a></li>
+                                        <li><a class="dropdown-item" href="#"> Internationalization </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Business Calendar </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Checklist Items </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Organization </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Studies </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Organization Chart </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Support Requests </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Checklists </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Communications </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Forums </a></li>
+                                        <li><a class="dropdown-item" href="#"> My Surveys </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#"> Home </a></li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Resources </a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> About Us </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" href="#"> Mission</a></li>
+                                    <li><a class="dropdown-item" href="#"> Leadership </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Contact Us </a></li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Help </a></li>
+                        </ul>
+
+                    </div>
+                    <!-- navbar-collapse.// -->
+                    @if (User == null)
+                    {
+                        <div class="btn-sign-in">
+                            <a href="" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#signModal">Sign In</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="log-in-out">
+                            <span>@User.Name</span>
+                            <a href="#" class="btn btn-orange" onclick="fnSignOut();">Sign Out</a>
+                        </div>
+                    }
+                    <!-- Modal -->
+                    <div class="modal fade" id="signModal" tabindex="-1" aria-labelledby="signModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="form-wrap loginpopup">
+                                        <h2>Portolo Sign In</h2>
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Account or Email Address: </label>
+                                                @*<input type="Email" class="form-control txtRequired" placeholder="Email address">*@
+                                                @Html.TextBoxFor(a => a.Email1, new { @class = "form-control txtRequired" })
+                                                <span id="Email1Val" style="color:red;display:none" class="valClass">Please Enter Email.</span>
+                                                <i class="ace-icon fa fa-envelope"></i>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password:</label>
+                                                <div class="p-relative">
+                                                    @*<input type="password" class="form-control txtRequired" id="password-field" placeholder="Password">*@
+                                                    @Html.PasswordFor(a => a.Password, new { @class = "form-control txtRequired", type = "password" })
+                                                    <span toggle="#password-field" id="togglePassword1" class="field-icon fa fa-fw fa-eye toggle-password"></span>
+                                                    <span id="PasswordVal" style="color:red;display:none" class="valClass">Please Enter Password.</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-10 gap5 d-flex justify-content-center">
+                                                <button type="button" class="btn btn-orange" id="btnSignIn" onclick="fnSignIn()">Sign In</button>
+                                                <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn btn-orange-outline">Cancel</button>
+                                            </div>
+                                            <div class="form-check gap5 d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Remember me next time
+                                                </label>
+                                            </div>
+                                            <div class="form-group-10">
+                                                <div class="gap5 d-flex justify-content-center cmdGetHelp">
+                                                    <a href="#" class="">Need help signing in?</a>
+                                                    <a href="@Url.Action("MyProfile","Home",new {area="" })" class="">Create account?</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- container-fluid.// -->
+            </nav>
+
+            <div class="modal fade" id="signModal" tabindex="-1" aria-labelledby="signModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-wrap loginpopup">
+                                <h2>Portolo Sign In</h2>
+                                <form>
+                                    <div class="form-group">
+                                        <label>Account or Email Address: </label>
+                                        <input type="Email" class="form-control txtRequired" placeholder="Email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password:</label>
+                                        <div class="p-relative">
+                                            <input type="password" class="form-control txtRequired" id="password-field" placeholder="Password">
+                                            <span toggle="#password-field" class="field-icon fa fa-fw fa-eye toggle-password"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group-10 gap5 d-flex justify-content-center">
+                                        <button type="button" class="btn btn-orange">Sign In</button>
+                                        <button type="button" class="btn btn-orange-outline">Cancel</button>
+                                    </div>
+                                    <div class="form-check gap5 d-flex justify-content-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-group-10">
+                                        <div class="gap5 d-flex justify-content-center cmdGetHelp">
+                                            <a href="#" class="">Need help signing in?</a>
+                                            <a href="#" class="">Create account?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="container">
+            @*<div class="home-content">*@
+            @RenderBody()
+            @*</div>*@
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p class="text-center">© 2023 by Portolo. All Rights Reserved. &nbsp;&nbsp;&nbsp;<a href="">Terms of Use</a> &nbsp;&nbsp;&nbsp;<a href="">Site Map</a></p>
+        </div>
+    </footer>
+   
+
+    <script>
+    function fnSignIn() {
+    var model = {
+            Email1: $('#Email1').val(),
+            Password: $('#Password').val(),
+    };
+
+        if (fnLoginValidation()) {
+        $.ajax({
+            url: '@Url.Action("LogIn", "Home",new {area="" })',
+            data: JSON.stringify(model),
+            type: 'POST',
+            cache: false,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            dataType: "json",
+            success: function (result) {
+                if (result == "A") {
+                     window.location.href = '@Url.Action("Index", "Home", new {area="" })'
+                }
+                else if (result == "") {
+                     $.alert({
+                        icon: 'fa fa-warning',
+                        type: 'orange',
+                        title: 'Warning!',
+                        content: 'Your account has been deactivated, Please contact administrator.',
+                    });
+                }
+                else if (result == "Wrong Password") {
+                    $.alert({
+                        icon: 'fa fa-warning',
+                        type: 'orange',
+                        title: 'Warning!',
+                        content: 'Your password does not match, Please enter correct password.',
+                    });
+                }
+                else if (result == "Wrong User") {
+                    $.alert({
+                        icon: 'fa fa-warning',
+                        type: 'orange',
+                        title: 'Warning!',
+                        content: 'This user does not exist.',
+                    });
+                }
+            },
+            error: function (e) {
+            }
+        });
+    }
+}
+
+    function fnLoginValidation() {
+    $('.valClass').css({ 'display': 'none' });
+    if ($('#Email1').val() == null || $('#Email1').val() == '') {
+        $('#Email1').focus();
+        $('#Email1Val').html('Enter the account or email address');
+        $('#Email1Val').css({ 'display': 'block' });
+        return false;
+    }
+    //else if (!validateEmail($('#Email1').val())) {
+    //    $('#Email1').focus();
+    //    $('#Email1Val').html('Not valid Email.');
+    //    $('#Email1Val').css({ 'display': 'block' });
+    //    return false;
+    //}
+    else if ($('#Password').val() == null || $('#Password').val() == '') {
+        $('#Password').focus();
+        $('#PasswordVal').css({ 'display': 'block' });
+        return false;
+    }
+
+    return true;
+}
+
+    function validateEmail(emailField) {
+            var emailReg = /^([A-Za-z0-9_\-\.])+\@@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            return emailReg.test(emailField);
+        }
+
+    function fnSignOut() {
+            window.location.href = '@Url.Action("LogOut", "Home", new {area="" })'
+        }
+
+    const togglePassword = document.querySelector('#togglePassword1');
+    const password = document.querySelector('#Password');
+
+    togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            if (type == "password") {
+                togglePassword.src = "/images/icons/eye.gif";
+            } else {
+
+                togglePassword.src = "/images/icons/hideeye.PNG";
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

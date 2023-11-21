@@ -1,0 +1,100 @@
+﻿@*@model IEnumerable<Protolo.Application.Web.Areas.System.Models.LookupCodeViewModel>
+    @{
+        int row = 1;
+    }*@
+@model Protolo.Application.Web.Areas.System.Models.LookupCodeViewModel
+<div class="row">
+    <div class="col-lg-8">
+        <div class="box-shadow p-3 rounded-2">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                    <div class="form-group">
+                        <div class="custom-select">
+                            @Html.DropDownListFor(a => a.LookupCodeKey, Model.LookupCodeTypeList, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                    <div class="icon-btn">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="fnAddConfigLookup()">
+                            <img src="~/images/PlusIconPortolo.png" alt="PlusIconPortolo">
+                        </a>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                @*/************* Add Section (_AddConfigLookup.cshtml) id="#exampleModal" *************/*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search for item">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                    <div class="icon-btn">
+                        <a href="#">
+                            <img src="~/images/portolo-excel-icon.png" alt="excel">
+                        </a>
+                        <a href="#">
+                            <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                        </a>
+                        <a href="#">
+                            <img src="~/images/portolo-search-icon.png" alt="search">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive tableFixHeadLookUp">
+                <table class="table table-bordered table-striped mb-0 example" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="table--check--box"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+                            <th class="table--id">ID</th>
+                            <th>Item</th>
+                            <th class="table--last--btn">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.LookupCodeList.Count() > 0)
+                        {
+                            int row = 1;
+                            foreach (var item in Model.LookupCodeList)
+                            {
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
+                                    <td>@item.LookupCodeKey</td>
+                                    <td>@item.DisplayCodeDesc</td>
+                                    <td>
+                                        <div class="table-icon-btn">
+                                            <a href="javascript:void(0);" onclick="fnAddConfigLookup(@item.LookupCodeKey)">
+                                            <img src="~/images/edit-Icon.png" alt="edit">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                row++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.example').dataTable({
+        destroy: true,
+        "columnDefs": [{
+            "targets": 'no-sort',
+            "orderable": false,
+        }]
+    });
+</script>

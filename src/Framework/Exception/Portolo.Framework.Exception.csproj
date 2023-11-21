@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<AssemblyVersion>2018.2018.29.1439</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.ServiceModel" />
+		<Reference Include="System.ServiceModel.Web" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Web.Routing" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="elmah" Version="1.2.2" />
+		<PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Log\Portolo.Framework.Log.csproj" />
+	  <ProjectReference Include="..\Utils\Portolo.Framework.Utils.csproj" />
+	</ItemGroup>
+  
+
+</Project>

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+		<AssemblyVersion>2018.2018.7.1444</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' or '$(TargetFramework)' == 'net45' ">
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.Data.DataSetExtensions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ApplicationInsights" Version="2.10.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="ZXing.Net" Version="0.16.5" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net45' ">
+		<PackageReference Include="AutoMapper" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+		<PackageReference Include="AutoMapper" Version="7.0.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' or '$(TargetFramework)' == 'net45' ">
+		<PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+		<PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.7" />
+		<PackageReference Include="itextsharp.xmlworker" Version="5.5.13" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+		<PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Utilities\Cryptography\Portolo.Utility.Cryptography.csproj" />
+	  <ProjectReference Include="..\..\Utilities\SendGrid\Portolo.Utility.SendGrid.csproj" />
+	</ItemGroup>
+
+</Project>

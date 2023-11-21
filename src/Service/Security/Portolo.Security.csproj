@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net472</TargetFrameworks>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Repository\ApplicationSettingsRepository.cs" />
+	  <Compile Remove="Repository\ApplicationTextRepository.cs" />
+	  <Compile Remove="Repository\CountryRepository.cs" />
+	  <Compile Remove="Repository\CountryTimeZoneRepository.cs" />
+	  <Compile Remove="Repository\IApplicationSettingsRepository.cs" />
+	  <Compile Remove="Repository\IApplicationTextRepository.cs" />
+	  <Compile Remove="Repository\ICountryRepository.cs" />
+	  <Compile Remove="Repository\ICountryTimeZoneRepository.cs" />
+	  <Compile Remove="Repository\ILookupCodeRepository.cs" />
+	  <Compile Remove="Repository\IOrganizationTypesRepository.cs" />
+	  <Compile Remove="Repository\IPhoneTypesRepository.cs" />
+	  <Compile Remove="Repository\ISendEmailToRepository.cs" />
+	  <Compile Remove="Repository\ISiteOrgTypeRepository.cs" />
+	  <Compile Remove="Repository\IStateRepository.cs" />
+	  <Compile Remove="Repository\ISuffixesRepository.cs" />
+	  <Compile Remove="Repository\LookupCodeRepository.cs" />
+	  <Compile Remove="Repository\OrganizationTypesRepository.cs" />
+	  <Compile Remove="Repository\PhoneTypesRepository.cs" />
+	  <Compile Remove="Repository\SendEmailToRepository.cs" />
+	  <Compile Remove="Repository\SiteOrgTypeRepository.cs" />
+	  <Compile Remove="Repository\StateRepository.cs" />
+	  <Compile Remove="Repository\SuffixesRepository.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EntityFramework" Version="6.2.0" />
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net45' ">
+		<PackageReference Include="AutoMapper" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+		<PackageReference Include="AutoMapper" Version="7.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Framework\Common\Portolo.Framework.Common.csproj" />
+	  <ProjectReference Include="..\..\Framework\Data\Portolo.Framework.Data.csproj" />
+	  <ProjectReference Include="..\..\Framework\Exception\Portolo.Framework.Exception.csproj" />
+	  <ProjectReference Include="..\..\Framework\Security\Portolo.Framework.Security.csproj" />
+	  <ProjectReference Include="..\..\Framework\Utils\Portolo.Framework.Utils.csproj" />
+	  <ProjectReference Include="..\..\Utilities\Configuration\Portolo.Utility.Configuration.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.IdentityModel" />
+	</ItemGroup>
+
+</Project>

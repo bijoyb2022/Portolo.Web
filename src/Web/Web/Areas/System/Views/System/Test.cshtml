@@ -1,0 +1,1060 @@
+﻿
+@*@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portolo</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.bootstrap5.min.css" rel="stylesheet">
+    <link href="~/Content/css/filter_multi_select.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <header class="after-login">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white p-0">
+                <div class="container--fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/images/logo.png" alt="Logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <img src="~/images/menu1.png" alt="Menu">
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav strip-info">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  System  </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"> Configuration </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcements </a></li>
+                                    <li><a class="dropdown-item" href="#"> Organizations </a></li>
+                                    <li><a class="dropdown-item" href="#"> Message Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Internationalization </a></li>
+                                    <li><a class="dropdown-item" href="#"> FAQs </a></li>
+                                    <li><a class="dropdown-item" href="#"> Users </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Pages </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forums </a></li>
+                                    <li><a class="dropdown-item" href="#"> Reports </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forum Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Response Time Limits </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Template Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcement Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Security Groups </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Files </a></li>
+                                    <li><a class="dropdown-item" href="#"> Sentinels </a></li>
+                                    <li><a class="dropdown-item" href="#"> Finance Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Subscriptions/Pricing </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Tasks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Mobile Admin </a></li>
+                                    <li><a class="dropdown-item" href="#"> Website Activity Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Support Requests </a></li>
+                                    <li><a class="dropdown-item" href="#"> Topics of Expertise </a></li>
+                                    <li><a class="dropdown-item" href="#"> Surveys </a></li>
+                                    <li><a class="dropdown-item" href="#"> Audit Trail </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Text </a></li>
+                                    <li><a class="dropdown-item" href="#"> Video Help </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Blocks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Data Quality </a></li>
+                                    <li><a class="dropdown-item" href="#"> Standard Templates </a></li>
+                                    <li><a class="dropdown-item" href="#"> Business Calendar </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklist Items </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklists </a></li>
+                                    <li><a class="dropdown-item" href="#"> Redirects </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Our Organization  </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"> Configuration </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcements </a></li>
+                                    <li><a class="dropdown-item" href="#"> Organizations </a></li>
+                                    <li><a class="dropdown-item" href="#"> Message Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Internationalization </a></li>
+                                    <li><a class="dropdown-item" href="#"> FAQs </a></li>
+                                    <li><a class="dropdown-item" href="#"> Users </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Pages </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forums </a></li>
+                                    <li><a class="dropdown-item" href="#"> Reports </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forum Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Response Time Limits </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Template Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcement Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Security Groups </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Files </a></li>
+                                    <li><a class="dropdown-item" href="#"> Sentinels </a></li>
+                                    <li><a class="dropdown-item" href="#"> Finance Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Subscriptions/Pricing </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Tasks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Mobile Admin </a></li>
+                                    <li><a class="dropdown-item" href="#"> Website Activity Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Support Requests </a></li>
+                                    <li><a class="dropdown-item" href="#"> Topics of Expertise </a></li>
+                                    <li><a class="dropdown-item" href="#"> Surveys </a></li>
+                                    <li><a class="dropdown-item" href="#"> Audit Trail </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Text </a></li>
+                                    <li><a class="dropdown-item" href="#"> Video Help </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Blocks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Data Quality </a></li>
+                                    <li><a class="dropdown-item" href="#"> Standard Templates </a></li>
+                                    <li><a class="dropdown-item" href="#"> Business Calendar </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklist Items </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklists </a></li>
+                                    <li><a class="dropdown-item" href="#"> Redirects </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  My Pages  </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"> Configuration </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcements </a></li>
+                                    <li><a class="dropdown-item" href="#"> Organizations </a></li>
+                                    <li><a class="dropdown-item" href="#"> Message Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Internationalization </a></li>
+                                    <li><a class="dropdown-item" href="#"> FAQs </a></li>
+                                    <li><a class="dropdown-item" href="#"> Users </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Pages </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forums </a></li>
+                                    <li><a class="dropdown-item" href="#"> Reports </a></li>
+                                    <li><a class="dropdown-item" href="#"> Forum Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Response Time Limits </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Template Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Library </a></li>
+                                    <li><a class="dropdown-item" href="#"> Announcement Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Security Groups </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Files </a></li>
+                                    <li><a class="dropdown-item" href="#"> Sentinels </a></li>
+                                    <li><a class="dropdown-item" href="#"> Finance Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Subscriptions/Pricing </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Tasks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Mobile Admin </a></li>
+                                    <li><a class="dropdown-item" href="#"> Website Activity Log </a></li>
+                                    <li><a class="dropdown-item" href="#"> Support Requests </a></li>
+                                    <li><a class="dropdown-item" href="#"> Topics of Expertise </a></li>
+                                    <li><a class="dropdown-item" href="#"> Surveys </a></li>
+                                    <li><a class="dropdown-item" href="#"> Audit Trail </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Text </a></li>
+                                    <li><a class="dropdown-item" href="#"> Video Help </a></li>
+                                    <li><a class="dropdown-item" href="#"> Process Blocks </a></li>
+                                    <li><a class="dropdown-item" href="#"> Data Quality </a></li>
+                                    <li><a class="dropdown-item" href="#"> Standard Templates </a></li>
+                                    <li><a class="dropdown-item" href="#"> Business Calendar </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklist Items </a></li>
+                                    <li><a class="dropdown-item" href="#"> System Checklists </a></li>
+                                    <li><a class="dropdown-item" href="#"> Redirects </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#"> Home </a></li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Resources </a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> About Us </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" href="#"> Mission</a></li>
+                                    <li><a class="dropdown-item" href="#"> Leadership </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Contact Us </a></li>
+                            <li class="nav-item"><a class="nav-link" href="#"> Help </a></li>
+                        </ul>
+                    </div>
+                    <!-- navbar-collapse.// -->
+                </div>
+                <!-- container-fluid.// -->
+            </nav>
+            <div class="log-in-out">
+                <span>Suvrajit Pal (System Administrator)</span>
+                <a href="#" class="btn btn-orange">Sign Out</a>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="container">
+            <div class="page-content">
+                <div class="control-btn pt-15 d-flex-mob">
+                    <h2>Configuration</h2>
+                    <div class="control-btn-group">
+                        <div class="form-btn">
+                            <button type="button" class="btn btn-orange-outline">Return</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-section">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-settings-tab" data-bs-toggle="pill" data-bs-target="#pills-settings" type="button" role="tab" aria-controls="pills-settings" aria-selected="true">Settings</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-text-tab" data-bs-toggle="pill" data-bs-target="#pills-text" type="button" role="tab" aria-controls="pills-text" aria-selected="false">Text</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-lookup-tab" data-bs-toggle="pill" data-bs-target="#pills-lookup" type="button" role="tab" aria-controls="pills-lookup" aria-selected="false">Lookup Lists</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-images-tab" data-bs-toggle="pill" data-bs-target="#pills-images" type="button" role="tab" aria-controls="pills-images" aria-selected="false">Images</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
+                            <div class="tab-form">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-5">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search for setting">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2  col-md-3 col-sm-5">
+                                        <div class="form-group">
+                                            <div class="icon-btn">
+                                                <a href="#">
+                                                    <img src="~/images/portolo-excel-icon.png" alt="excel">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="~/images/portolo-search-icon.png" alt="search">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="box-shadow p-3 rounded-2">
+                                            <div class="">
+                                                <table class="table table-bordered table-striped mb-0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Setting</th>
+                                                            <th>Usage</th>
+                                                            <th>Value</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-text" role="tabpanel" aria-labelledby="pills-text-tab">
+                            <div class="tab-form">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-5">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search for setting">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2  col-md-3 col-sm-5">
+                                        <div class="form-group">
+                                            <div class="icon-btn">
+                                                <a href="#">
+                                                    <img src="~/images/portolo-excel-icon.png" alt="excel">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="~/images/portolo-search-icon.png" alt="search">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-xl-5 col-lg-6">
+                                        <div class="box-shadow p-3 rounded-2">
+                                            <div class="">
+                                                <table id="settings" class="table table-bordered table-striped mb-0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Page</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Acceptance of Terms and Conditions </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-lookup" role="tabpanel" aria-labelledby="pills-lookup-tab">
+                            <div class="tab-form">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-10 col-sm-9 col-8">
+                                        <div class="form-group">
+                                            <div class="custom-select">
+                                                <select class="form-control">
+                                                    <option value="10">Account Status</option>
+                                                    <option value="11">Area Code</option>
+                                                    <option value="22">Contact Status</option>
+                                                    <option value="3">Country</option>
+                                                    <option value="9">Email Type</option>
+                                                    <option value="12">Entity Type</option>
+                                                    <option value="40">FAQ Topic</option>
+                                                    <option value="46">In Step</option>
+                                                    <option value="36">Leave Type</option>
+                                                    <option value="31">Main Condition</option>
+                                                    <option value="16">Organization Role</option>
+                                                    <option value="1">Organization Type</option>
+                                                    <option value="52">Participant</option>
+                                                    <option value="26">Periodic Task</option>
+                                                    <option value="8">Phone Type</option>
+                                                    <option value="29">Postal Code</option>
+                                                    <option value="17">Process</option>
+                                                    <option value="30">Question Priority</option>
+                                                    <option value="33">Question Status</option>
+                                                    <option value="45">Rate</option>
+                                                    <option value="44">Rating parameter</option>
+                                                    <option value="42">Readability Frequency &amp; Color</option>
+                                                    <option value="23">Registration Level</option>
+                                                    <option value="18">Report</option>
+                                                    <option value="19">Reports Category</option>
+                                                    <option value="4">Salutation</option>
+                                                    <option value="48">Sector</option>
+                                                    <option value="47">Self Assessment Question</option>
+                                                    <option value="24">Send Email Type</option>
+                                                    <option value="2">Site/Other Type</option>
+                                                    <option value="37">Solution Provider</option>
+                                                    <option value="5">State</option>
+                                                    <option value="20">Status</option>
+                                                    <option value="34">Study Phase</option>
+                                                    <option value="49">Study Stage</option>
+                                                    <option value="35">Study Status</option>
+                                                    <option value="32">Subsidiary Condition</option>
+                                                    <option value="7">Suffix</option>
+                                                    <option value="39">System Text Status</option>
+                                                    <option value="25">Task Category</option>
+                                                    <option value="21">Task Frequency</option>
+                                                    <option value="27">Tasks Status</option>
+                                                    <option value="6">Time Zone</option>
+                                                    <option value="28">Unit Type</option>
+                                                    <option value="43">Urgency</option>
+                                                    <option value="38">Weekend Days</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                                        <div class="icon-btn">
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <img src="~/images/PlusIconPortolo.png" alt="PlusIconPortolo">
+                                            </a>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                                                        <div class="form-btn">
+                                                            <button type="button" class="btn btn-orange">Save</button>
+                                                            <button type="button" class="btn btn-orange-outline" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>Participant:</label>
+                                                            <input type="text" class="form-control txtRequired" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-10 col-sm-9 col-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search for item">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                                        <div class="icon-btn">
+                                            <a href="#">
+                                                <img src="~/images/portolo-excel-icon.png" alt="excel">
+                                            </a>
+                                            <a href="#">
+                                                <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                                            </a>
+                                            <a href="#">
+                                                <img src="~/images/portolo-search-icon.png" alt="search">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div class="box-shadow p-3 rounded-2">
+                                            <div class="table-responsive tableFixHead">
+                                                <table class="table table-bordered table-striped mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Setting</th>
+                                                            <th>Usage</th>
+                                                            <th>Value</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>00003</td>
+                                                            <td>Login - password characters  </td>
+                                                            <td>Minimum Password length   </td>
+                                                            <td>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  </td>
+                                                            <td>
+                                                                <div class="table-icon-btn">
+                                                                    <img src="~/images/edit-Icon.png" alt="edit">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">
+                            <div class="row">
+                                <div class="col-xl-5 col-lg-6">
+                                    <div class="box-shadow p-3 rounded-2">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="emp-data">
+                                                    <h2>Default Profile Image</h2>
+                                                    <div class="ProfileImgDrop text-center">
+                                                        <b>Profile Image</b>
+                                                        <div class="ImgDrop">
+                                                            <img src="~/images/Portolo__AccountImage.jpg" alt="Account Image">
+                                                        </div>
+                                                        <div class="p-1">
+                                                            <input class="form-control" type="file">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="form-btn">
+                                                            <button type="button" class="btn btn-orange">Save</button>
+                                                            <button type="button" class="btn btn-orange-outline">Delete</button>
+                                                            <button type="button" class="btn btn-orange-outline">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="emp-data">
+                                                    <h2>Default Profile Image</h2>
+                                                    <div class="ProfileImgDrop text-center">
+                                                        <b>Profile Image</b>
+                                                        <div class="ImgDrop">
+                                                            <img src="~/images/Portolo__AccountImage.jpg" alt="Account Image">
+                                                        </div>
+                                                        <div class="p-1">
+                                                            <input class="form-control" type="file">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="form-btn">
+                                                            <button type="button" class="btn btn-orange">Save</button>
+                                                            <button type="button" class="btn btn-orange-outline">Delete</button>
+                                                            <button type="button" class="btn btn-orange-outline">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p class="text-center">© 2023 by Portolo. All Rights Reserved. &nbsp;&nbsp;&nbsp;<a href="">Terms of Use</a> &nbsp;&nbsp;&nbsp;<a href="">Site Map</a></p>
+        </div>
+    </footer>
+    <!-- Jquery-->
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/filter-multi-select-bundle.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap5.min.js"></script>
+    <script src="~/Scripts/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/responsive.bootstrap5.min.js"></script>
+    <!-- Jquery-->
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /*for each element, create a new DIV that will act as the selected item:*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            x[i].appendChild(a);
+            /*for each element, create a new DIV that will contain the option list:*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 1; j < ll; j++) {
+                /*for each option in the original select element,
+                create a new DIV that will act as an option item:*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function (e) {
+                    /*when an item is clicked, update the original select box,
+                    and the selected item:*/
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function (e) {
+                /*when the select box is clicked, close any other select boxes,
+                and open/close the current select box:*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+            /*a function that will close all select boxes in the document,
+            except the current select box:*/
+            var x, y, i, xl, yl, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            xl = x.length;
+            yl = y.length;
+            for (i = 0; i < yl; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < xl; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+    </script>
+</body>
+</html>
+

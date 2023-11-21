@@ -1,0 +1,435 @@
+﻿@model Protolo.Application.Web.Areas.System.Models.ConfigurationViewModel
+@{
+    ViewBag.Title = "Configuration";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="page-content">
+    <div class="control-btn py-15 d-flex-mob" id="headerText">
+        <h2>Configuration</h2>
+        <div class="control-btn-group">
+            <div class="form-btn">
+                <a id="btnBack" class="btn btn-orange-outline" href="Javascript:void(0)" onclick="history.back()"> Return</a>
+            </div>
+        </div>
+    </div>
+    <div class="tab-section">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-settings-tab" data-bs-toggle="pill" data-bs-target="#pills-settings" type="button" role="tab" aria-controls="pills-settings" aria-selected="true">Settings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-text-tab" data-bs-toggle="pill" data-bs-target="#pills-text" type="button" role="tab" aria-controls="pills-text" aria-selected="false">Text</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-lookup-tab" data-bs-toggle="pill" data-bs-target="#pills-lookup" type="button" role="tab" aria-controls="pills-lookup" aria-selected="false">Lookup Lists</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-images-tab" data-bs-toggle="pill" data-bs-target="#pills-images" type="button" role="tab" aria-controls="pills-images" aria-selected="false">Images</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
+                <div class="tab-form">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-5">
+                            <div class="form-group">
+                                @Html.TextBoxFor(a => a.ApplicationSettingDesc, new { @class = "form-control", placeholder = "Search for setting" })
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="configSettingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        @*/************* Add Section (_AddConfigLookup.cshtml) id="#exampleModal" *************/*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2  col-md-3 col-sm-5">
+                            <div class="form-group">
+                                <div class="icon-btn">
+                                    <a href="#">
+                                        <img src="~/images/portolo-excel-icon.png" alt="excel">
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/images/portolo-search-icon.png" alt="search" onclick="fnSearchSettings()">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="listApplicationSettings" class="tab-content">
+                    @{ Html.RenderAction("ApplicationSettingsList", "System", new { area = "System" });}
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-text" role="tabpanel" aria-labelledby="pills-text-tab">
+                <div class="tab-form" id="pills-text-search">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-5">
+                            <div class="form-group">
+                                @Html.TextBoxFor(a => a.ApplicationTextDesc, new { @class = "form-control", placeholder = "Search for setting" })
+                            </div>
+                        </div>
+                        <div class="col-lg-2  col-md-3 col-sm-5">
+                            <div class="form-group">
+                                <div class="icon-btn">
+                                    <a href="#">
+                                        <img src="~/images/portolo-excel-icon.png" alt="excel">
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/images/portolo-refresh-icon.png" alt="refresh">
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/images/portolo-search-icon.png" alt="search" onclick="fnSearchText()">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="listConfigurationText" class="tab-content">
+                    @{ Html.RenderAction("ConfigurationTextList", "System", new { area = "System" });}
+                </div>
+                <div id="editConfigurationText" class="tab-content">
+                    @{ Html.RenderAction("_EditConfigText", "System", new { area = "System" });}
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-lookup" role="tabpanel" aria-labelledby="pills-lookup-tab">
+                <div class="tab-form">
+                   
+                </div>
+                <div class="tab-content">
+                    @{ Html.RenderAction("ConfigurationLookupList", "System", new { area = "System" });}
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="box-shadow p-3 rounded-2">
+                            <div class="row g-0">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="emp-data border-end-0">
+                                        <h2>Default Profile Image</h2>
+                                        <div class="ProfileImgDrop text-center mx-15">
+                                            <b>Profile Image</b>
+                                            <div class="ImgDrop">
+                                                <img src="~/images/Portolo_AccountImage.jpg" alt="Account Image">
+                                            </div>
+                                            <div class="p-1">
+                                                <input class="form-control" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="form-btn">
+                                                <button type="button" class="btn btn-orange">Save</button>
+                                                <button type="button" class="btn btn-orange-outline">Delete</button>
+                                                <button type="button" class="btn btn-orange-outline">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="emp-data">
+                                        <h2>Default Profile Image</h2>
+                                        <div class="ProfileImgDrop text-center mx-15">
+                                            <b>Profile Image</b>
+                                            <div class="ImgDrop">
+                                                <img src="~/images/Portolo_AccountImage.jpg" alt="Account Image">
+                                            </div>
+                                            <div class="p-1">
+                                                <input class="form-control" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="form-btn">
+                                                <button type="button" class="btn btn-orange">Save</button>
+                                                <button type="button" class="btn btn-orange-outline">Delete</button>
+                                                <button type="button" class="btn btn-orange-outline">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-Update" tabindex="-1" aria-labelledby="modalOne" aria-hidden="true" data-bs-keyboard="false" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered  modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var x, i, j, l, ll, selElmnt, a, b, c;
+    /*look for any elements with the class "custom-select":*/
+    x = document.getElementsByClassName("custom-select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function (e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                    if (s.options[i].innerHTML == this.innerHTML) {
+                        s.selectedIndex = i;
+                        h.innerHTML = this.innerHTML;
+                        y = this.parentNode.getElementsByClassName("same-as-selected");
+                        yl = y.length;
+                        for (k = 0; k < yl; k++) {
+                            y[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        break;
+                    }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function (e) {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        });
+    }
+    function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+        except the current select box:*/
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+                arrNo.push(i)
+            } else {
+                y[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+                x[i].classList.add("select-hide");
+            }
+        }
+    }
+    /*if the user clicks anywhere outside the select box,
+    then close all select boxes:*/
+    document.addEventListener("click", closeAllSelect);
+
+    /* Start Jquery function for coding purpose */
+
+       function fnSearchSettings() {
+       $.ajax({
+           url: '@Url.Action("GetApplicationSettingsList", "System", new {area= "System" })',
+           data: { id: $('#ApplicationSettingDesc').val() },
+           type: 'GET',
+           cache: false,
+           contentType: "application/json;charset=utf-8",
+           dataType: "json",
+           success: OnSuccess,
+           failure: function (response) {
+               alert(response.d);
+           },
+           error: function (response) {
+               alert(response.d);
+           }
+       });
+    }
+
+    function OnSuccess(response) {
+        debugger;
+        var table = $(".example").DataTable();
+
+        // Destroy the DataTable
+        table.destroy();
+
+        $(".example").DataTable(
+            {
+                bLengthChange: true,
+                lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                bFilter: true,
+                bSort: true,
+                bPaginate: true,
+                data: response,
+                columns: [{ 'data': 'SLNo' },
+                { 'data': 'ApplicationSettingDesc' },
+                { 'data': 'Usage' },
+                { 'data': 'SettingValue' },
+                { 'data': 'Edit' }
+                //{
+                //    data: null,
+                //    render: function (data, type, row) {
+                //        // Assuming 'Author' is a property of the data object
+                //        var author = data.Author;
+
+                //        // Assuming 'SLNo' is a property of the data object
+                //        var userId = data.SLNo;
+
+                //        // Build the HTML for the last column
+                //        return '<div class="table-icon-btn">' +
+                //            /*'<p>' + author + '</p>' +*/
+                //            /*'<span><a href="/MyProfile?userId=' + userId + '">' +*/
+                //            '<img src="~/images/edit-Icon.png" alt="edit">' +
+                //            /*'</a></span>' +*/
+                //            '</div>';
+                //    }
+                ]
+            });
+        @*function fnSearchSettings() {
+
+            $.ajax({
+                url: '@Url.Action("ApplicationSettingsList", "System", new {area= "System" })',
+                data: { id: $('#ApplicationSettingDesc').val() },
+                type: 'GET',
+                cache: false,
+                contentType: "application/json;charset=utf-8",
+                dataType: "html",
+                success: function (result) {
+                    $('#listApplicationSettings').html(result);
+                },
+                error: function (e) {
+                    //$.alert({
+                    //    title: 'Warning!',
+                    //    content: 'Error in your requst,Please contact administrator.',
+                    //})
+                }
+            });
+        }*@
+    }
+
+    function fnSearchText() {
+    $.ajax({
+        url: '@Url.Action("ConfigurationTextList", "System", new {area= "System" })',
+        data: { id: $('#ApplicationTextDesc').val() },
+        type: 'GET',
+        cache: false,
+        contentType: "application/json;charset=utf-8",
+        dataType: "html",
+        success: function (result) {
+            $('#listConfigurationText').html(result);
+        },
+        error: function (e) {
+            //$.alert({
+            //    title: 'Warning!',
+            //    content: 'Error in your requst,Please contact administrator.',
+            //})
+        }
+    });
+}
+
+    function fnAddConfigSettings(id) {
+        if (id != null && id != '') {
+            $('.modal-content').load('/System/System/AddConfigSettings/' + id, function () { $("#configSettingModal").modal('show'); });
+        }
+        else {
+            $('.modal-content').load('/System/System/AddConfigSettings/', function () { $("#configSettingModal").modal('show'); });
+        }
+    }
+    function fnEditConfigText(id) {
+        if (id != null && id != '') {
+            $('#editConfigurationText').load('/System/System/_EditConfigText/' + id, function () { $("#editConfigurationText").show(); });
+            $("#listConfigurationText").hide(); 
+            $("#pills-tab").hide(); 
+            $("#pills-text-search").hide(); 
+            $("#headerText").hide();
+        }
+        else {
+            $('#editConfigurationText').load('/System/System/_EditConfigText/', function () { $("#editConfigurationText").show(); });
+            $("#listConfigurationText").hide();
+            $("#pills-tab").hide(); 
+            $("#pills-text-search").hide(); 
+            $("#headerText").hide();
+        }
+    }
+    function fnCloseConfigText() {        
+            
+            $("#listConfigurationText").show();
+            $("#pills-tab").show();
+            $("#pills-text-search").show(); 
+            $("#headerText").show(); 
+        
+    } 
+
+    function fnAddConfigLookup(id) {
+        if (id != null && id != '') {
+            $('.modal-content').load('/System/System/AddConfigLookup/' + id, function () { $("#exampleModal").modal('show'); });
+        }
+        else {
+            $('.modal-content').load('/System/System/AddConfigLookup/', function () { $("#exampleModal").modal('show'); });
+        }
+    }
+     @*function LookUpDropDownChange() {
+        debugger
+        $.ajax({
+        url: '@Url.Action("ConfigurationLookupList", "System", new { area = "System" })',
+        data: { id: $('#LookupCodeKey').val() },
+        type: 'GET',
+        cache: false,
+        contentType: "application/json;charset=utf-8",
+        dataType: "html",
+        success: function (result) {
+        debugger
+        alert(result);
+        $('#listApplicationSettings').html(result);
+        },
+        error: function (e) {
+
+        }
+    });
+    }*@
+
+</script>
+
+
+@*<script type="text/javascript" language="javascript">
+    $(document).on('change', '#LookupCodeKey', function () {
+        debugger;
+        alert('4');
+    });
+</script>*@
+
+
+@if (User != null)
+{
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#loginheader").addClass("after-login");
+        })
+    </script>
+
+}

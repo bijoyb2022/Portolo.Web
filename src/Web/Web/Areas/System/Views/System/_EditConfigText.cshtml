@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Protolo.Application.Web.Areas.System.Models.ApplicationTextViewModel>
+@{
+
+}
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <div class="box-shadow p-3 rounded-2">
+            <div class="wrapper">
+                <h2 style="color: #474747; font-size: 25px; display: inline-block;">Edit Configuration Text</h2>
+                <br />
+                <br />
+                <form action="~/UpdateAppText" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="dash-tabs prof-info">
+                                <div class="card">
+                                    <div class="form-group">
+                                        <div class="card-header">
+                                            <div class="control-icons">
+                                                <span style="font-size: 20px; padding-left: 10px;">About Us</span>
+                                                <!--<input type="checkbox"--> @*onclick="validatecheckbox(this.value);"*@ <!--value="false" name="Ischecked" id="Ischecked" style="display:none;" title="Checked for users acceptance" />-->
+                                                <input type="hidden" name="Ischecked" id="Ischecked" />
+                                                <input type="submit" id="SubmitFormBtn" style="display:none " />
+                                                <div class="form-btn">
+                                                    <button type="button" class="btn btn-orange">Save</button>
+                                                    <button type="button" class="btn btn-orange-outline" onclick="fnCloseConfigText()" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-box">
+                                                <div class="form-group">
+                                                    @*<div style="display:block;position:relative">*@
+                                                    <input type="hidden" Value="Id" name="Id" />
+
+                                                    @*@Html.TextAreaFor(model => model.SettingValue, new { @id = "Instructions" })*@
+                                                    <textarea rows="10" cols="932" type="text" class="form-control" value="abc" name="SettingValue" id="Instructions">abc</textarea>
+                                                    @*</div>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: 'textarea#Instructions', width: 1400, innerHeight: 300,
+        plugins: [
+            'advlist', ' autolink', ' link ', 'image', ' lists', ' charmap', 'preview', ' hr', ' anchor', ' pagebreak',
+            'searchreplace', ' wordcount', ' visualblocks', ' visualchars', ' insertdatetime', ' media ', 'nonbreaking', 'fullscreen',
+            'table ', 'contextmenu', ' directionality', ' emoticons', ' paste', ' textcolor ', 'responsivefilemanager', ' code', 'template', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | fontfamily fontsize | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image  | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons hr | help',
+        /* toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image_upload',*/
+        menubar: 'favs file edit view insert format tools table help',
+        statusbar: false,
+
+        images_upload_url: '/Configuration/TinyMceUpload',
+        paste_data_images: true,
+        automatic_uploads: true,
+        /*image_advtab: true,*/
+        file_picker_types: 'image',
+        relative_urls: false,
+        remove_script_host: false,
+        image_dimensions: true,
+        forced_root_block: 'div',
+        //image_class_list: [
+        //    { title: 'Responsive', value: 'img-responsive' }
+        //],
+        //file_picker_callback: function (cb, value, meta) {
+        //    var input = document.createElement('input');
+        //    input.setAttribute('type', 'file');
+        //    input.setAttribute('accept', 'image/*');
+        //    input.onchange = function () {
+        //        var file = this.files[0];
+        //        var reader = new FileReader();
+        //        reader.readAsDataURL(file);
+        //        reader.onload = function () {
+        //            var id = 'blog-' + (new Date()).getTime();
+        //            var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+        //            var blobInfo = blobCache.create(id, file, reader.result);
+        //            blobCache.add(blobInfo);
+        //            cb(blobInfo.blobUri(), { title: file.name });
+        //        };
+        //    };
+        //    input.click();
+        //}
+
+    });
+</script>
+
+

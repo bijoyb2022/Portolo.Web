@@ -1,0 +1,24 @@
+﻿@model Portolo.Web.Models.RegistrationViewModel
+@{
+    ViewBag.title = "Index";
+    //Layout = "~/views/shared/_layout.cshtml";
+}
+<script src="~/Scripts/jquery.js"></script>
+<div class="wrapper">
+    <div class="container">
+        <div class="home-content">
+            <h2>Crabs in a Bucket: A Metaphor for Clinical Research</h2>
+            <p>Have you ever seen crabs in a bucket? They don’t like it in the bucket. They climb all over each other to get out. But they never get out. Clinical research is the bucket. We’re the crabs. We climb all over each other to solve problems, but we haven’t solved them in 40 years. Portolo is developing a technology platform to transform clinical research into a collaborative, learning enterprise so we can all get out of the bucket. The patients can't wait.</p>
+        </div>
+    </div>
+</div>
+
+
+@if (User != null)
+{
+    <script>
+        $(document).ready(function () {
+            $("#loginheader").addClass("after-login");
+        })
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<AssemblyVersion>2017.9.7.0846</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.IdentityModel" />
+		<Reference Include="System.IdentityModel.Selectors" />
+		<Reference Include="System.Runtime.Caching" />
+		<Reference Include="System.ServiceModel" />
+		<Reference Include="System.Web" />
+	</ItemGroup>
+
+	 <ItemGroup Condition=" '$(TargetFramework)' != 'net45' ">
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.571" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="elmah" Version="1.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Exception\Portolo.Framework.Exception.csproj" />
+    <ProjectReference Include="..\Utils\Portolo.Framework.Utils.csproj" />
+  </ItemGroup>
+
+
+</Project>

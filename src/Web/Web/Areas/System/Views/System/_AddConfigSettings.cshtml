@@ -1,0 +1,19 @@
+﻿@model Protolo.Application.Web.Areas.System.Models.ApplicationSettingsViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Edit Settings</h5>
+    <div class="form-btn">
+        <button type="button" class="btn btn-orange">Save</button>
+        <button type="button" class="btn btn-orange-outline" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label>New Value:</label>
+        @Html.TextBoxFor(a => a.ApplicationSettingDesc, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        <label>Usage:</label>
+        @Html.TextBoxFor(a => a.Usage, new { @class = "form-control" })
+    </div>
+</div>

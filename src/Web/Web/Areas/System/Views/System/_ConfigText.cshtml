@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Protolo.Application.Web.Areas.System.Models.ApplicationTextViewModel>
+@{
+    int row = 1;
+}
+
+<div class="row">
+    <div class="col-xl-5 col-lg-6">
+        <div class="box-shadow p-3 rounded-2">
+            <div class="">
+                <table class="table table-bordered table-striped mb-0 example" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="table--id">ID</th>
+                            <th>Page</th>
+                            <th class="table--last--btn">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.SLNo</td>
+                                    <td>@item.ApplicationTextDesc</td>
+                                    <td>
+                                        <div class="table-icon-btn">
+                                            <a href="javascript:void(0);" onclick="fnEditConfigText('2')">
+                                                <img src="~/images/edit-Icon.png" alt="edit">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                row++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.example').dataTable({
+        destroy: true,
+        "columnDefs": [{
+            "targets": 'no-sort',
+            "orderable": false,
+        }]
+    });
+</script>
+

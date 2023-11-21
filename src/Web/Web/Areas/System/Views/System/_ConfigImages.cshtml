@@ -1,0 +1,91 @@
+﻿
+
+<div class="col-lg-12" style="padding-top:16px;">
+    <div class="card-header" style="padding: 0px 1rem;">      
+    </div>
+</div>
+<div class="col-lg-5" style="width:50%;">
+    <div class="mastr-table-wrap">
+        <div class="emp-db mt-3">
+            <div class="card" style="width:max-content">
+                <div class="emp-data" style="width:max-content">
+                    <table id="uploadtable" class="table table-bordered " style="margin-bottom:0px;width:max-content">
+                        <thead>
+                            <tr class="table-hd">
+                                <th style="text-align:center">Default Profile Image</th>
+                                <th style="text-align:center">Default Organization Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="width:max-content">
+                                @using (Html.BeginForm("AccountSettings", "Configuration", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveProfileImg" }))
+                                {
+                                    <td style="text-align: center;width:350px">
+                                        <div style="margin:5px 20px">
+                                            <div style="margin:5px 10px">
+                                                <label for="AccountImg"><b>Profile Image</b></label> <br>
+                                                <img alt="" style="height: 200px; width: 200px; border: solid black;" id="profile" src="~/images/Portolo_AccountImage.jpg" />
+                                                
+                                                    <span id="ProfileImgDrop" style="position: absolute; height: 272px; width: 280px; top: 58px; left: 55px; border: 2px solid #ded8d7;"></span>
+                                                    <input style="width:100%; position:absolute; height:272px; top:58px; left:55px; opacity:0;" class="form-control" ondragenter="ProfileImgIn()" ondragleave="ProfileImgOut()" ondrop="ProfileImgOut()" type='file' name="AccountImg" id="ActImg" accept=".png,.jpg,.jpeg" />
+
+                                                    <div style="display:flex; margin:5px;">
+                                                        <button style="padding:5px;border:1px solid lightgray;border-radius:5px 0 0 5px"> Select/Drop</button>
+                                                        <input type="text" style="border:1px solid lightgrey;border-radius:0 5px 5px 0; width:185px" id="ProfileImg" value=" No file chosen" />
+                                                    </div>
+                                               
+                                            </div>
+                                            <div class="pt-3">
+
+                                                <button type="submit" class="btn btn-orange" id="Apply">Save</button>
+
+                                                <a id="dltAccountImg" class="btn btn-orange-outline" href="Javascript:void(0)" title="Remove image">Delete</a>
+
+                                                <a id="CancelAccountImg" class="btn btn-orange-outline" href="Javascript:void(0)">Cancel</a>
+                                                @*<span id="dltAccountImg" style="margin-left:2px; cursor:pointer;" title="Remove image"> <img src="/Images/Icons/deleteicon.png" width="31"></span>*@
+                                                <input type="hidden" name="dltImg" id="AccountImgdlt" value="false" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                }
+                                @using (Html.BeginForm("OrganizationSettings", "Configuration", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveOrgImg" }))
+                                {
+                                    <td style="text-align: center; width:350px">
+                                        <div style="margin:5px 20px">
+                                            <div style="margin:5px 10px">
+                                                <label for="OrganizationImg"><b>Organization Image</b></label>
+                                                <br />
+                                                <img alt="" style="height:200px;width:200px;border:solid black;display:10px;" id="organization" src="~/images/Portolo_OrganizationImage.jpg"/>
+                                                
+                                                    <span id="OrgImgDrop" style="width: 280px; position:absolute; height:272px; top:58px; right:55px; border:2px solid #ded8d7;"></span>
+                                                    <input style="width:280px; position:absolute; height:272px; top:58px; right:55px; opacity:0;" class="form-control" ondragenter="OrgImgIn()" ondragleave="OrgImgOut()" ondrop="OrgImgOut()" type='file' name="OrganizationImg" id="OrgImg" accept=".png,.jpg,.jpeg" />
+                                                    <div style="display:flex; margin:5px;">
+                                                        <button style="padding:5px;border:1px solid lightgray;border-radius:5px 0 0 5px"> Select/Drop</button>
+                                                        <input type="text" style="border:1px solid lightgrey;border-radius:0 5px 5px 0; width:185px" id="OrgImgName" value=" No file chosen" />
+                                                    </div>
+                                               
+                                            </div>
+                                            <div class="pt-3">
+                                               
+                                                    <button type="submit" class="btn btn-orange" id="Insert">Save</button>
+                                               
+                                                    <a id="dltOrgImg" class="btn btn-orange-outline" href="Javascript:void(0)" title="Remove image">Delete</a>
+                                              
+                                            <a id="CancelOrgImg" class="btn btn-orange-outline" href="Javascript:void(0)">Cancel</a>
+                                                <input type="hidden" name="dltImg" id="OrgImgdlt" value="false" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

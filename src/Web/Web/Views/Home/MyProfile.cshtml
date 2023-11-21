@@ -1,0 +1,714 @@
+﻿@model Portolo.Web.Models.RegistrationViewModel
+@{
+    ViewBag.title = "myprofile";
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="page-content">
+            @*<div class="tab-link pt-3">
+                    <ul>
+                        <li>
+                            <a href="#" class="tab-active">General</a>
+                        </li>
+                        <li>
+                            <a href="#">My Topics of Expertise</a>
+                        </li>
+                    </ul>
+                </div>*@
+            <div class="control-btn pt-15">
+                <h2>@*Suvrajit Pal's Account Pending Profile*@</h2>
+                <div class="control-btn-group">
+                    <div class="form-check">
+                        @*<input class="form-check-input" type="checkbox" value="" id="txtdefaultCheck112">
+                            <label class="form-check-label" for="txtdefaultCheck1">
+                                Bypass Checks
+                            </label>*@
+                    </div>
+                    <div class="form-btn">
+                        @*<button type="button" class="btn btn-orange-outline">Change Password</button>*@
+                        <button type="button" class="btn btn-orange" onclick="fnRegistration()">Save</button>
+                        @*<button type="button" class="btn btn-orange" onclick="validateInputs()">Save</button>*@
+                        @*<button type="button" class="btn btn-orange-outline">Apply</button>
+                            <button type="button" class="btn btn-orange-outline">Close Account</button>*@
+                        <button type="button" class="btn btn-orange-outline">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 col-xl-2">
+                        <div class="box-shadow profile-info">
+                            <span>Headshot Photo</span>
+                            <div class="profile-pic">
+                                <img src="/images/Portolo_AccountImage.jpg" alt="Account Image">
+                            </div>
+                            <a href="#" class="btn btn-orange-outline">Select or Drag Photo</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-9 col-xl-10">
+                        <div class="form-res-port">
+                            <div class="contact-information">
+                                <div class="row">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Name and Contact Information:</span></div>
+                                    <div class="col col-xl-2 col-lg-2 col-md-2 col-sm-3">
+                                        <div class="form-group">
+                                            <label>Salutation:</label>
+                                            @Html.DropDownListFor(a => a.SalutationKey, Model.SalutationList, "Select", new { @class = "form-control txtRequired" })
+                                        </div>
+                                        <span id="SalutationKeyVal" style="color:red;display:none" class="valClass">Please Select Salutation.</span>
+                                    </div>
+                                    <div class="col col-lg-3 col-md-5 col-sm-9">
+                                        <div class="form-group">
+                                            <label>First Name:</label>
+                                            <input type="text" class="form-control txtRequired" id="FirstName" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2 col-md-5">
+                                        <div class="form-group">
+                                            <label>Middle Name:</label>
+                                            <input type="text" class="form-control" id="MiddleName" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3 col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name:</label>
+                                            <input type="text" class="form-control txtRequired" id="LastName" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2 col-md-6">
+                                        <div class="form-group">
+                                            <label>Nickname:</label>
+                                            <input type="text" class="form-control" id="NickName" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-xl-2 col-lg-2 col-md-3">
+                                        <div class="form-group">
+                                            <label>Suffix:</label>
+                                            @Html.DropDownListFor(a => a.SuffixesKey, Model.SuffixList, "(none)", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-2 col-lg-3">
+                                        <div class="form-group">
+                                            <label>Sign-In Account ID:</label>
+                                            <input type="text" class="form-control" id="AccountID" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-3 col-lg-5" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Assistant:</label>
+                                            @*<select multiple name="animals" id="animals" class="filter-multi-select">
+                                                    <option value="option1">Bag, Rajkumar </option>
+                                                </select>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-xl-2 col-lg-2" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Account Status:</label>
+                                            <select class="form-control">
+                                                <option selected="selected" value="1">Active</option>
+                                                <option value="2">Inactive</option>
+                                                <option value="3">Blocked</option>
+                                                <option value="4">Pending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-3 col-lg-4" style="display:none;">
+                                        <div class="form-group">
+                                            <label class="d-block">Messages from Portolo:</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="subscribe1" name="subscribe">
+                                                <label class="form-check-label">Subscribe</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="subscribe2" name="subscribe">
+                                                <label class="form-check-label">Unsubscribe</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-xl-2 col-lg-2">
+                                        <div class="form-group">
+                                            <label>Send Email to:</label>
+                                            @Html.DropDownListFor(a => a.SendEmailToKey, Model.SendEmailToList, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="email-information">
+                                <div class="row">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Email:</span></div>
+                                    <div class="col col-xl-2 col-lg-2">
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(a => a.EmailTypeKey1, Model.SendEmailTypeList, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control txtRequired" id="MainEmail" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-xl-2 col-lg-2">
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(a => a.EmailTypeKey2, Model.SendEmailTypeSecondList, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="MainEmail2" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-lg-3 col-md-9 col-sm-10 col-11">
+                                        <div class="form-group">
+                                            <label>Password:</label>
+                                            <div class="p-relative">
+                                                <input type="password" class="form-control txtRequired" id="txtPassword">
+                                                @*<input type="password" class="form-control txtRequired" id="nil1">*@
+                                                <span toggle="#password-field" id="togglePassword2" class="field-icon fa fa-fw fa-eye toggle-password"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-lg-3 col-md-9 col-sm-10 col-11">
+                                        <div class="form-group">
+                                            <label>Confirm Password:</label>
+                                            <div class="p-relative">
+                                                <input type="password" class="form-control txtRequired" id="txtConfirmPassword">
+                                                @*<input type="password" class="form-control txtRequired" id="nil2">*@
+                                                <span toggle="#confirm-field" id="togglePassword3" class="field-icon fa fa-fw fa-eye toggle-password"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address-information">
+                                <div class="row">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Mailing Address:</span></div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Country:</label>
+                                            @Html.DropDownListFor(a => a.CountryKey, Model.CountryList, new { @class = "form-control txtRequired" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Address 1:</label>
+                                            <input type="text" class="form-control txtRequired" id="Address1" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2">
+                                        <div class="form-group">
+                                            <label>Address 2:</label>
+                                            <input type="text" class="form-control" id="Address2" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>City:</label>
+                                            <input type="text" class="form-control txtRequired" id="City" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>State/Province:</label>
+                                            @Html.DropDownListFor(a => a.StateKey, Model.StateList, "--Select--", new { @class = "form-control txtRequired" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2">
+                                        <div class="form-group">
+                                            <label>Postal Code:</label>
+                                            <input type="text" class="form-control txtRequired" id="PostalCode" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Time Zone:</label>
+                                            @Html.DropDownListFor(a => a.CountryTimeZoneKey, Model.CountryTimeZoneList, "--Select--", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Date Format:</label>
+                                            <select class="form-control">
+                                                <option value="0" selected="">mm/dd/yy</option>
+                                                <option value="1">dd/mm/yy</option>
+                                                <option value="2">yy/mm/dd</option>
+                                                <option value="3">yy/dd/mm</option>
+                                                <option value="4">mm/dd/yyyy</option>
+                                                <option value="5">dd/mm/yyyy</option>
+                                                <option value="6">yyyy/mm/dd</option>
+                                                <option value="7">yyyy/dd/mm</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Time Format:</label>
+                                            <select class="form-control">
+                                                <option value="0" selected="">h:mm tt</option>
+                                                <option value="1">HH:mm</option>
+                                                <option value="2">hh:mm tt</option>
+                                                <option value="3">H:mm</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-information">
+                                <div class="row pb-10">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Phone:</span></div>
+                                    <div class="col col-xl-2 col-lg-2 col-md-4">
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(a => a.PhoneTypeKey1, Model.PhoneTypeList, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-1 col-lg-2 col-md-4">
+                                        <div class="form-group">
+                                            <div class="p-relative countryCode">
+                                                <label class="code-txt">Country Code:</label>
+                                                @Html.TextBoxFor(a => a.CountryISDCode1, new { @class = "form-control txtRequired", @readonly = "readonly" })
+                                                @*<div class="connect-ph">+91</div>*@
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col col-xl-2 col-lg-4 col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control txtRequired" id="Phone1" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-xl-2 col-lg-2">
+                                        <div class="form-group">
+                                            @Html.DropDownListFor(a => a.PhoneTypeKey2, Model.PhoneTypeList, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-1 col-lg-2">
+                                        <div class="form-group">
+                                            <div class="p-relative countryCode">
+                                                <label class="code-txt">Country Code:</label>
+                                                @Html.TextBoxFor(a => a.CountryISDCode2, new { @class = "form-control txtRequired", @readonly= "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-xl-2 col-lg-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Phone2" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="professional-information">
+                                <div class="row">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Professional Information:</span></div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Organization:</label>
+                                            <input type="text" class="form-control txtRequired" id="Organization" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Organization Type:</label>
+                                            @Html.DropDownListFor(a => a.OrganizationTypeKey, Model.OrganizationTypeList, "--Select--", new { @class = "form-control txtRequired" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Site Type:</label>
+                                           <select class="form-control">
+                                               <option>ee</option>
+                                           </select>
+                                                @*@Html.DropDownListFor(a => a.SiteOrgTypeKey, Model.SiteTypeList, "--Select--", new { @class = "form-control txtRequired" })*@
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2" style="display:none;">
+                                        <div class="form-group">
+                                            <label>Entity:</label>
+                                            <select class="form-control">
+                                                <option value="1" selected="selected">--Select--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Job Title:</label>
+                                            <input type="text" class="form-control txtRequired" id="Jobtitle" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3">
+                                        <div class="form-group">
+                                            <label>Department:</label>
+                                            <input type="text" class="form-control" id="Department" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="col col-lg-12">
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="administrator1" name="administrator">
+                                                <label class="form-check-label">System Administrator</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="administrator2" name="administrator">
+                                                <label class="form-check-label">Organization Administrator</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="administrator3" name="administrator">
+                                                <label class="form-check-label">Entity Administrator</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="administrator4" name="administrator">
+                                                <label class="form-check-label">Study Administrator</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="administrator5" name="administrator">
+                                                <label class="form-check-label">Individual</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="role-information" style="display:none;">
+                                <div class="row">
+                                    <div class="col col-lg-12 col-md-12 col-sm-12"><span class="form-head">Test Role:</span></div>
+                                    <div class="col col-xl-3 col-lg-4">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option value="0" selected="">System Administrator</option>
+                                                <option value="1">Organization Administrator</option>
+                                                <option value="3">Entity Administrator</option>
+                                                <option value="2">Study Administrator</option>
+                                                <option value="4">Individual</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function fnRegistration() {
+     var model = {
+         SalutationKey: $('select[name="SalutationKey"]').val(),
+         FirstName: $.trim($('#FirstName').val()),
+         MiddleName: $.trim($('#MiddleName').val()),
+         LastName: $.trim($('#LastName').val()),
+         SuffixesKey: $('select[name="SuffixesKey"]').val(),
+         UserName: $.trim($('#AccountID').val()),
+         SendEmailToKey: $('select[name="SendEmailToKey"]').val(),
+         EmailTypeKey1: $('select[name="EmailTypeKey1"]').val(),
+         Email1: $.trim($('#MainEmail').val()),
+         EmailTypeKey2: $('select[name="EmailTypeKey2"]').val(),
+         Email2: $.trim($('#MainEmail2').val()),
+         Password: $.trim($('#txtPassword').val()),
+         CountryKey: $('select[name="CountryKey"]').val(),
+         Address1: $.trim($('#Address1').val()),
+         Address2: $.trim($('#Address2').val()),
+         City: $.trim($('#City').val()),
+         StateKey: $('select[name="StateKey"]').val(),
+         PostalCode: $.trim($('#PostalCode').val()),
+         CountryTimeZoneKey: $('select[name="CountryTimeZoneKey"]').val(),
+         ContactType1: $('select[name="PhoneTypeKey1"]').text(),
+         CountryISDCode1: $.trim($('#CountryISDCode1').val()),
+         ContactNumber1: $.trim($('#Phone1').val()),
+         ContactType2: $('select[name="PhoneTypeKey2"]').text(),
+         CountryISDCode2: $.trim($('#CountryISDCode2').val()),
+         ContactNumber2: $.trim($('#Phone2').val()),
+         Organization: $.trim($('#Organization').val()),
+         OrganizationTypeKey: $('select[name="OrganizationTypeKey"]').val(),
+         JobTitle: $.trim($('#Jobtitle').val()),
+         DepartmentName: $.trim($('#Department').val()),
+     };
+
+     if (fnRegValidation()) {
+         $.ajax({
+             url: '@Url.Action("SaveRegistration", "Home",new {area="" })',
+             data: JSON.stringify(model),
+             type: 'POST',
+             cache: false,
+             contentType: "application/json;charset=utf-8",
+             dataType: "json",
+             success: function (result) {
+                 if (result == 1) {
+                      $.confirm({
+                         title: 'Confirm!',
+                         content: 'Your resigtration have been successfully.!',
+                         buttons: {
+                             confirm: function () {
+                                window.location.href = '@Url.Action("Index", "Home",new {area="" })'
+                             }
+                         }
+                     });
+                 }
+                 else if (result == -1) {
+                     $.alert({
+                         title: 'Alert!',
+                         content: 'User already exist, Please add different user.',
+                     });
+
+                 }
+             },
+             error: function (e) {
+             }
+         });
+     }
+    }
+
+    function fnRegValidation() {        
+        var bypassCheck = false;
+        var SalutationKey = $.trim($('#SalutationKey').val());
+        var FirstName = $.trim($('#FirstName').val());
+        var LastName = $.trim($('#LastName').val());
+        var AccountID = $.trim($('#AccountID').val());
+        var MainEmail = $.trim($('#MainEmail').val());
+        var ConfirmPassword = $.trim($('#txtConfirmPassword').val());
+        var Password = $.trim($('#txtPassword').val());
+        var Address1 = $.trim($('#Address1').val());
+        var city = $.trim($('#City').val());
+        var country = $.trim($('#CountryKey').val());
+        var State = $.trim($('#StateKey').val());
+        var jobtitle = $.trim($('#Jobtitle').val());
+        var Organization = $.trim($('#Organization').val());
+        var phone1 = $.trim($('#Phone1').val());
+        var id = $("#CountryKey").val();
+        var zipcode = $('#PostalCode').val();
+        var sendEmailTo = $('#sendEmailTo').val();
+        var Authentication2F = $('#Authentication2F').val();
+
+        var orgType = $.trim($('#OrganizationTypeKey').val());
+        var orgSiteType = $.trim($('#Sitetypes').val());
+        var IsSiteType = $('#SiteTypeModule').is(":visible");
+        var orgOtherType = $.trim($('#Othertypes').val());
+        var IsOtherType = $('#OtherTypeModule').is(":visible");
+        var countryCode = $('.countryCode').val();
+
+    var error = "";
+        /* if ((SalutationKey == "null" || SalutationKey == "") && bypassCheck == false)*/
+        if (SalutationKey == "null" || SalutationKey == "")
+    {
+        error += "&#9679 Select your salutation <br>";
+    }
+        if (FirstName == "") {
+        error += "&#9679 Enter your first name <br>";
+    }
+        else if (FirstName.substring(0, 1).toLowerCase() === FirstName.substring(0, 1)) {
+        error += "&#9679 First character of first name should be in upper case <br>";
+    }
+        if (FirstName.length < 3){
+        error += "&#9679 Enter at least 3 characters for your first name <br>";
+        }
+        if (FirstName.length >= 1 && !(/[A-Z]/.test(FirstName) && /[a-z]/.test(FirstName))) {
+        error += "&#9679 First name must have a mix of upper and lower case characters <br>";
+    }
+    if (LastName == "") {
+        error += "&#9679 Enter your last name <br>";
+    }
+    else if(LastName.substring(0, 1).toLowerCase() === LastName.substring(0, 1)) {
+        error += "&#9679 First character of last name should be in upper case <br>";
+    }
+    if (LastName.length < 3) {
+        error += "&#9679 Enter at least 3 characters for your last name <br>";
+        }
+    if (LastName.length >= 1 && !(/[A-Z]/.test(LastName) && /[a-z]/.test(LastName))) {
+        error += "&#9679 Last name must have a mix of upper and lower case characters <br>";
+    }
+    if (MainEmail == "") {
+		error += "&#9679 Enter your primary email <br>";
+    }
+    if (MainEmail != "") {
+     var regex = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!regex.test(MainEmail))
+        {
+                error += "&#9679 Main email is not valid <br>";
+         }
+     }
+        @*else {
+       var valid = "true";
+        var pkey = $('#pkey').val();
+        $.ajax({
+            url: "/Account/DuplicateEmailCheck",
+            datatype: Text,
+            data: { email: MainEmail, id: pkey },
+            async: false,
+            success: function (res) {
+                valid = res;
+            },
+            error: function () { },
+        });
+        if (valid == "false") {
+            error += "&#9679 @Resources.Portolo_Account.Profile_Alert_Email_already_exist <br>";
+        }
+    }*@
+		@*if (signinaccountid != "") {
+			var valid = "true";
+			var pkey = $('#pkey').val();
+			$.ajax({
+				url: "/Account/DuplicateAccId",
+				datatype: Text,
+				data: { AccId: signinaccountid, id: pkey },
+				async: false,
+				success: function (res) {
+					valid = res;
+				},
+				error: function () { },
+			});
+			if (valid == "false") {
+				error += "&#9679 @Resources.Portolo_Account.Profile_Alert_Account_ID_already_used <br>";
+			}
+		}*@
+
+		if (Password == "" && bypassCheck == false) {
+        error += "&#9679 Enter your password <br>";
+    }
+		if (ConfirmPassword == "" && bypassCheck == false) {
+        error += "&#9679 Confirm your password <br>";
+    }
+		if ((Password != ConfirmPassword) && bypassCheck == false) {
+        error += "&#9679 Password and confirmation password do not match <br>";
+        }
+        if ((country == "" || country == 0) && bypassCheck == false) {
+            error += "&#9679 Select your country <br>";
+        }
+        if (Address1 == "" && bypassCheck == false) {
+            error += "&#9679 Enter your address first line <br>";
+        }
+        if (city == "" && bypassCheck == false) {
+            error += "&#9679 Enter your city <br>";
+        }
+        if (State == "" && bypassCheck == false) {
+            error += "&#9679 Enter your state <br>";
+        }
+        if (zipcode == "") {
+            error += "&#9679 Enter your postal code <br>";
+        }
+		if (phone1 == "" && bypassCheck == false) {
+        error += "&#9679 Enter your primary phone number <br>";
+        }
+        if (id == 1 || id == 2) {
+            //error = validateInput2(error);
+            if (phone1 != "") {
+                phone1 = phone1.replace("(", "").replace(")", "").replace("-", "").replace(" ", "").replace(".", "").replace("_", "");
+                if (phone1.length != 10) {
+                    error += "&#9679 Phone number must be 10 digits <br>";
+                }
+            }
+        }
+        else {
+            if (phone1 != "") {
+                debugger;
+                var regex = /^\d+$/; 
+                if (regex.test(phone1)) {
+                    const pattern = /^\d{8,13}$/;
+                    if (!pattern.test(phone1)) {
+                        error += "&#9679 Phone number must be 8 to 13 digits <br>";
+                    }
+                }
+            }
+        }
+        if (Organization == "") {
+            error += "&#9679 Enter your organization <br>";
+        }
+        if (orgType === "0" && bypassCheck == false) {
+            error += "&#9679 Enter your organization type <br>";
+        }
+        if (IsSiteType && bypassCheck == false) {
+            if (orgType === "1" && orgSiteType === "0") {
+                error += "&#9679 Enter your site/network type <br>";
+            }
+        }
+        if (IsOtherType && bypassCheck == false)
+        {
+            if (orgType === "6" && orgOtherType === "0") {
+                error += "&#9679 Enter your other type <br>";
+            }
+
+
+    }
+        if (jobtitle == "" && bypassCheck == false) {
+            error += "&#9679 Enter your job title <br>";
+        }
+
+
+
+        if (error != "") {
+        var lines = error.split("<br>").length;
+        if (lines > 2)
+		{
+			var errormsg = "Correct these issues in your profile and click on the save button: <br>";
+			errormsg += error;
+			alertify.alert(errormsg);
+            var alertID = document.getElementById("alertify-ok");
+            setTimeout(function () {
+                if (alertID) {
+                    alertID.click();
+                }
+            }, 3000)
+        }
+		else
+            alertify.alert(error);
+        var alertID = document.getElementById("alertify-ok");
+        setTimeout(function () {
+            if (alertID) {
+                alertID.click();
+            }
+        }, 3000)
+        return false;
+    }
+        return true;
+}
+
+    const togglePassword1 = document.querySelector('#togglePassword2');
+    const password1 = document.querySelector('#txtPassword');
+    togglePassword1.addEventListener('click', function (e) {
+        const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+        password1.setAttribute('type', type);
+        if (type == "password") {
+            togglePassword1.src = "/images/icons/eye.gif";
+        } else {
+
+            togglePassword1.src = "/images/icons/hideeye.PNG";
+        }
+    });
+
+    const togglePassword2 = document.querySelector('#togglePassword3');
+    const password2 = document.querySelector('#txtConfirmPassword');
+    togglePassword2.addEventListener('click', function (e) {
+        const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+        password2.setAttribute('type', type);
+        if (type == "password") {
+            togglePassword2.src = "/images/icons/eye.gif";
+        } else {
+
+            togglePassword1.src = "/images/icons/hideeye.PNG";
+        }
+    });
+</script>
+
